@@ -78,7 +78,9 @@ conda activate jude_presumm
 - Unzip it and put it in `Presumm/models/` and name it as `bertextabs.pt`
 
 ### 3. Prepare Stanford CoreNLP Library
-Run setup.sh
+```
+./setup.sh
+```
 
 
 ## Model Training

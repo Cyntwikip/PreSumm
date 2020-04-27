@@ -84,8 +84,8 @@ Run setup.sh
 ## Model Training
 
 ### Preprocessing
-python dataset_to_stories.py convert <dataset> <train folder name>
 ```
+python dataset_to_stories.py convert <dataset> <train folder name>
 python dataset_to_stories.py convert train_data_lesson_title.csv eva_train_04_27_2020
 ```
 
@@ -94,8 +94,8 @@ From base path, do the following:
 ```
 cd src
 ```
-./eva_train.sh <train folder name>
 ```
+./eva_train.sh <train folder name>
 ./eva_train.sh eva_train_04_27_2020
 ```
 
@@ -104,8 +104,8 @@ From base path, do the following:
 ```
 cd src
 ```
-./eva_forecast.sh <forecast folder name> <train folder name>
 ```
+./eva_forecast.sh <forecast folder name> <train folder name>
 ./eva_forecast.sh eva_forecast_04_27_2020 eva_train_04_27_2020
 ```
 
@@ -114,7 +114,7 @@ From base path, do the following:
 ```
 cd src
 ```
-python eva_summaries.py <forecast folder name> <forecasted lessons file>
 ```
+python eva_summaries.py <forecast folder name> <forecasted lessons file>
 python eva_summaries.py eva_forecast_04_27_2020 ulm_forecasts.csv
 ```

@@ -2,7 +2,7 @@
 
 ## Variables
 TRAIN_FOLDER=$1
-STEPS=100
+STEPS=1000
 PRETRAINED_PRESUMM_PATH="../models/bertextabs.pt"
 LOG_NAME="${TRAIN_FOLDER}.log"
 FINETUNED_MODEL_PATH="../models/${TRAIN_FOLDER}.pt"

@@ -16,7 +16,7 @@ def get_ref(txt):
 def merge_and_get_summaries(forecast_path, forecasted_lessons_file):
 #     forecast_path = 'eva_forecast_02_21_2020'
 #     forecasted_lessons_file = '~/notebooks/Cognitive_Search/sash/data/feb_20/ulm_forecasts.csv'
-    steps = 100
+    steps = 1000
     file = f'{forecast_path}.log.{148000+steps}'
 #     path = '/data/home/admin01//notebooks/Jude/Presumm2/PreSumm/logs/'
     path = 'logs/'

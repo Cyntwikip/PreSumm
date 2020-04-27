@@ -271,16 +271,21 @@ class BertData():
 
         return src_subtoken_idxs, sent_labels, tgt_subtoken_idxs, segments_ids, cls_ids, src_txt, tgt_txt
 
-
 def format_to_bert(args):
     if (args.dataset != ''):
         datasets = [args.dataset]
+        print('dataset')
     else:
-        datasets = ['train', 'valid', 'test']
+        datasets = ['train']
     for corpus_type in datasets:
         a_lst = []
-        for json_f in glob.glob(pjoin(args.raw_path, '*' + corpus_type + '.*.json')):
+        print(args.raw_path)
+        print('.' + corpus_type + '.0.json')
+        print(glob.glob(args.raw_path+'/*'))
+        for json_f in glob.glob(pjoin(args.raw_path, '.' + corpus_type + '.0.json')):
+            print(json_f)
             real_name = json_f.split('/')[-1]
+            print(real_name)
             a_lst.append((corpus_type, json_f, args, pjoin(args.save_path, real_name.replace('json', 'bert.pt'))))
         print(a_lst)
         pool = Pool(args.n_cpus)
@@ -289,7 +294,6 @@ def format_to_bert(args):
 
         pool.close()
         pool.join()
-
 
 def _format_to_bert(params):
     corpus_type, json_file, args, save_file = params
@@ -310,8 +314,7 @@ def _format_to_bert(params):
         if (args.lower):
             source = [' '.join(s).lower().split() for s in source]
             tgt = [' '.join(s).lower().split() for s in tgt]
-        b_data = bert.preprocess(source, tgt, sent_labels, use_bert_basic_tokenizer=args.use_bert_basic_tokenizer,
-                                 is_test=is_test)
+        b_data = bert.preprocess(source, tgt, sent_labels, use_bert_basic_tokenizer=args.use_bert_basic_tokenizer, is_test=is_test)
         # b_data = bert.preprocess(source, tgt, sent_labels, use_bert_basic_tokenizer=args.use_bert_basic_tokenizer)
 
         if (b_data is None):
@@ -327,28 +330,14 @@ def _format_to_bert(params):
     datasets = []
     gc.collect()
 
-
 def format_to_lines(args):
     corpus_mapping = {}
-    for corpus_type in ['valid', 'test', 'train']:
-        temp = []
-        for line in open(pjoin(args.map_path, 'mapping_' + corpus_type + '.txt')):
-            temp.append(hashhex(line.strip()))
-        corpus_mapping[corpus_type] = {key.strip(): 1 for key in temp}
-    train_files, valid_files, test_files = [], [], []
+    train_files = []
     for f in glob.glob(pjoin(args.raw_path, '*.json')):
-        real_name = f.split('/')[-1].split('.')[0]
-        if (real_name in corpus_mapping['valid']):
-            valid_files.append(f)
-        elif (real_name in corpus_mapping['test']):
-            test_files.append(f)
-        elif (real_name in corpus_mapping['train']):
-            train_files.append(f)
-        # else:
-        #     train_files.append(f)
-
-    corpora = {'train': train_files, 'valid': valid_files, 'test': test_files}
-    for corpus_type in ['train', 'valid', 'test']:
+        train_files.append(f)
+    
+    corpora = {'train': train_files}
+    for corpus_type in ['train']:
         a_lst = [(f, args) for f in corpora[corpus_type]]
         pool = Pool(args.n_cpus)
         dataset = []
@@ -372,7 +361,6 @@ def format_to_lines(args):
                 save.write(json.dumps(dataset))
                 p_ct += 1
                 dataset = []
-
 
 def _format_to_lines(params):
     f, args = params
@@ -437,3 +425,4 @@ def _format_xsum_to_lines(params):
             tgt.append(sent.split())
         return {'src': source, 'tgt': tgt}
     return None
+    

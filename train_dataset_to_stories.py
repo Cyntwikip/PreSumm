@@ -1,6 +1,4 @@
-import numpy as np
 import pandas as pd
-
 import click
 import re, os
 from tqdm import tqdm

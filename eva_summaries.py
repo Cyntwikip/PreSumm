@@ -13,13 +13,13 @@ def get_num(txt):
 def get_ref(txt):
     return int(re.findall(r'\d+', txt)[1])
 
-def merge_and_get_summaries(forecast_path, forecasted_lessons_file)
+def merge_and_get_summaries(forecast_path, forecasted_lessons_file):
 #     forecast_path = 'eva_forecast_02_21_2020'
 #     forecasted_lessons_file = '~/notebooks/Cognitive_Search/sash/data/feb_20/ulm_forecasts.csv'
     steps = 100
     file = f'{forecast_path}.log.{148000+steps}'
 #     path = '/data/home/admin01//notebooks/Jude/Presumm2/PreSumm/logs/'
-    path = '../logs/'
+    path = 'logs/'
     path = os.path.join(path, file)
 
     results = {}

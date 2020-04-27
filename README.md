@@ -74,8 +74,8 @@ conda activate jude_presumm
 ```
 
 ### 2. Prepare Pretrained Model
-Copy `Presumm model` from this [link](https://drive.google.com/file/d/1-IKVCtc4Q-BdZpjXc4s70_fRsWnjtYLr/view)
-Unzip it and put it in Presumm/models/ and name it as bertextabs.pt
+- Copy `PreSumm model` from this [link](https://drive.google.com/file/d/1-IKVCtc4Q-BdZpjXc4s70_fRsWnjtYLr/view)
+- Unzip it and put it in Presumm/models/ and name it as bertextabs.pt
 
 ### 3. Prepare Stanford CoreNLP Library
 Run setup.sh

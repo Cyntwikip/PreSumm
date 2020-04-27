@@ -122,11 +122,8 @@ cd src
 ### Saving the Summaries
 From base path, do the following:
 ```
-cd src
-```
-```
-python eva_summaries.py <forecast folder name> <forecasted lessons file>
-python eva_summaries.py eva_forecast_04_27_2020 ulm_forecasts.csv
+python eva_summaries.py get-summaries <forecast folder name> <forecasted lessons file>
+python eva_summaries.py get-summaries eva_forecast_04_27_2020 ulm_forecasts.csv
 ```
 Wait for a few minutes/hours.
 Results will be saved in `<forecast folder name>.csv` in the base path.

@@ -87,8 +87,8 @@ chmod +x setup.sh
 
 ### Preprocessing
 ```
-python dataset_to_stories.py convert <dataset> <train folder name>
-python dataset_to_stories.py convert train_data_lesson_title.csv eva_train_04_27_2020
+python train_dataset_to_stories.py convert <dataset> <train folder name>
+python train_dataset_to_stories.py convert train_data_lesson_title.csv eva_train_04_27_2020
 ```
 
 ### Training
@@ -99,6 +99,14 @@ cd src
 ```
 ./eva_train.sh <train folder name>
 ./eva_train.sh eva_train_04_27_2020
+```
+
+## Generating New Summaries
+
+### Preprocessing
+```
+python forecast_dataset_to_stories.py convert <forecasted lessons file> <forecast folder name>
+python forecast_dataset_to_stories.py convert ulm_forecasts.csv eva_forecast_04_27_2020
 ```
 
 ### Forecast

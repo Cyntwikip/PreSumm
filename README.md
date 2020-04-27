@@ -79,9 +79,9 @@ conda activate jude_presumm
 
 ### 3. Prepare Stanford CoreNLP Library
 ```
+chmod +x setup.sh
 ./setup.sh
 ```
-
 
 ## Model Training
 

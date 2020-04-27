@@ -2,11 +2,13 @@
 
 ## Variables
 FORECAST_FOLDER=$1
+STEPS=100
 PRETRAINED_PRESUMM_PATH="../models/bertextabs.pt"
 LOG_NAME="${FORECAST_FOLDER}.log"
 TRAIN_FOLDER=$2
 FINETUNED_MODEL_PATH="../models/${TRAIN_FOLDER}.pt"
-FINETUNED_MODEL="../models/${TRAIN_FOLDER}.pt/model_step_148100.pt"
+# FINETUNED_MODEL="../models/${TRAIN_FOLDER}.pt/model_step_148100.pt"
+FINETUNED_MODEL="../models/${TRAIN_FOLDER}.pt/model_step_$((148000+STEPS)).pt"
 
 ## Preprocessing
 

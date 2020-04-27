@@ -2,10 +2,12 @@
 
 ## Variables
 TEST_FOLDER=$1
+STEPS=100
 PRETRAINED_PRESUMM_PATH="../models/bertextabs.pt"
 LOG_NAME="${TEST_FOLDER}.log"
 FINETUNED_MODEL_PATH="../models/${TEST_FOLDER}.pt"
-FINETUNED_MODEL="../models/${TEST_FOLDER}.pt/model_step_148100.pt"
+# FINETUNED_MODEL="../models/${TEST_FOLDER}.pt/model_step_148100.pt"
+FINETUNED_MODEL="../models/${TEST_FOLDER}.pt/model_step_$((148000+STEPS)).pt"
 
 ## Inference
 

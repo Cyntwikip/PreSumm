@@ -76,6 +76,13 @@ conda activate jude_presumm
 ### 2. Prepare Pretrained Model
 - Copy `PreSumm model` from this [link](https://drive.google.com/file/d/1-IKVCtc4Q-BdZpjXc4s70_fRsWnjtYLr/view)
 - Unzip it and put it in `Presumm/models/` and name it as `bertextabs.pt`
+- Alternatively, you may use the following commands in terminal:
+```
+pip install gdown
+gdown 'https://drive.google.com/uc?id=1-IKVCtc4Q-BdZpjXc4s70_fRsWnjtYLr'
+unzip bertsumextabs_cnndm_final_model.zip
+mv model_step_148000.pt models/bertextabs.pt
+```
 
 ### 3. Prepare Stanford CoreNLP Library
 ```

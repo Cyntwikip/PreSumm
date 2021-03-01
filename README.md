@@ -111,6 +111,8 @@ cd src
 ## Generating New Summaries
 
 ### Preprocessing
+
+The `train_data_lesson_title.csv` contains the paragaphs identified as lessons and their corresponding summaries. This file was generated from the old lesson classifier model for this project.
 ```
 python forecast_dataset_to_stories.py convert <forecasted lessons file> <forecast folder name>
 python forecast_dataset_to_stories.py convert ulm_forecasts.csv eva_forecast_04_27_2020

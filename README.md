@@ -93,6 +93,8 @@ chmod +x setup.sh
 ## Model Training
 
 ### Preprocessing
+
+The `train_data_lesson_title.csv` contains the paragaphs identified as lessons and their corresponding summaries. This file was generated from the old lesson classifier model for this project. The original set of paragraphs prior to filtering came from the annotated paragraphs by the Independent Evaluation Department of ADB as of the time this was modeled.
 ```
 python train_dataset_to_stories.py convert <dataset> <train folder name>
 python train_dataset_to_stories.py convert train_data_lesson_title.csv eva_train_04_27_2020
@@ -111,8 +113,7 @@ cd src
 ## Generating New Summaries
 
 ### Preprocessing
-
-The `train_data_lesson_title.csv` contains the paragaphs identified as lessons and their corresponding summaries. This file was generated from the old lesson classifier model for this project.
+The `ulm_forecasts.csv` contains the paragaphs which we want to generate summarized versions of ("predict" or "forecast" in the context of ML). Similar to the earlier file, the paragraphs here are the ones identified as lessons by the old lesson classifier model for this project. The original set of paragraphs before filtering is from the whole ADB Project Completion Report documents as of the time it was scraped.
 ```
 python forecast_dataset_to_stories.py convert <forecasted lessons file> <forecast folder name>
 python forecast_dataset_to_stories.py convert ulm_forecasts.csv eva_forecast_04_27_2020

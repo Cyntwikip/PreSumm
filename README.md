@@ -92,6 +92,14 @@ chmod +x setup.sh
 
 ## Model Training
 
+### Prerequisites
+
+In the PreSumm base path, make sure to run the following commands in the terminal every time you open the machine as it seems that the variables get reset:
+```
+export CLASSPATH=$(pwd)/stanford-corenlp-full-2018-10-05/stanford-corenlp-3.9.2.jar
+echo "Please tokenize this text." | java edu.stanford.nlp.process.PTBTokenizer
+```
+
 ### Preprocessing
 
 The `train_data_lesson_title.csv` contains the paragaphs identified as lessons and their corresponding summaries. This file was generated from the old lesson classifier model for this project. The original set of paragraphs prior to filtering came from the annotated paragraphs by the Independent Evaluation Department of ADB as of the time this was modeled.
@@ -111,6 +119,13 @@ cd src
 ```
 
 ## Generating New Summaries
+
+### Prerequisites
+If you have not ran the training stage because you are simply reusing the old models, make sure to run the following commands in the terminal again:
+```
+export CLASSPATH=$(pwd)/stanford-corenlp-full-2018-10-05/stanford-corenlp-3.9.2.jar
+echo "Please tokenize this text." | java edu.stanford.nlp.process.PTBTokenizer
+```
 
 ### Preprocessing
 The `ulm_forecasts.csv` contains the paragaphs which we want to generate summarized versions of ("predict" or "forecast" in the context of ML). Similar to the earlier file, the paragraphs here are the ones identified as lessons by the old lesson classifier model for this project. The original set of paragraphs before filtering is from the whole ADB Project Completion Report documents as of the time it was scraped.
